@@ -19,8 +19,8 @@ setUserData()
 function getUserData() {
   if (localStorage.getItem(FEEDBACK_FORM_STATE)) {
     const saveData = JSON.parse(localStorage.getItem(FEEDBACK_FORM_STATE));
-    refs.email.value = storageData.email;
-    refs.message.value = storageData.message;
+    refs.email.value = saveData.email;
+    refs.message.value = saveData.message;
   }
 }
 
@@ -31,7 +31,6 @@ function setUserData() {
 
 function onFormInput(event) {
     formData[event.target.name] = event.target.value;
-    console.log(formData[event.target.name])
   localStorage.setItem(FEEDBACK_FORM_STATE, JSON.stringify(formData));   
 }
 
